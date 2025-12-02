@@ -39,9 +39,9 @@ function Header() {
 
         {/* Right CTA */}
         <div className="header-cta">
-          <a href="tel:+1234567890" className="cta-link">
-            Stylist hotline · +1 234 567 890
-          </a>
+          <NavLink to="/login" className="nav-link">
+            Sign in
+          </NavLink>
           <NavLink to="/cart" className="btn-circle">
             Bag
           </NavLink>
