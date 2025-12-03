@@ -1,11 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Logo from './Logo'
 
 const links = [
   { label: 'Home', to: '/' },
   { label: 'New Arrivals', to: '/products' },
   { label: 'Styling', to: '/contact' },
-  { label: 'Bag', to: '/cart' },
 ]
 
 function Header() {
@@ -14,7 +14,7 @@ function Header() {
       <div className="header-container">
         {/* Brand */}
         <div className="brand">
-          <span className="brand-badge">LL</span>
+          <Logo />
           <div>
             <p className="brand-name">LuxeLoom</p>
             <p className="brand-tagline">Dress Boutique</p>

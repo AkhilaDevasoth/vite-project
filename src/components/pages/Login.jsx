@@ -8,20 +8,20 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // TODO: Implement actual authentication logic
+    // Here you would call your auth API
     console.log('Login attempt:', { email, password })
-    // For now, redirect to products page after "login"
+    // For now, send user to products after "login"
     navigate('/products')
   }
 
   return (
-    <div className="page-body">
+    <section className="page-section">
       <div className="auth-container">
         <div className="auth-card">
           <div className="auth-header">
             <h1 className="section-title">Welcome back</h1>
             <p className="section-description">
-              Sign in to continue shopping and manage your orders.
+              Sign in to continue ordering your favourite dresses.
             </p>
           </div>
 
@@ -29,8 +29,8 @@ function Login() {
             <div className="form-group">
               <label htmlFor="email">Email address</label>
               <input
-                type="email"
                 id="email"
+                type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
@@ -41,8 +41,8 @@ function Login() {
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <input
-                type="password"
                 id="password"
+                type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
@@ -50,38 +50,23 @@ function Login() {
               />
             </div>
 
-            <div className="form-options">
-              <label className="checkbox-label">
-                <input type="checkbox" />
-                <span>Remember me</span>
-              </label>
-              <NavLink to="/forgot-password" className="auth-link">
-                Forgot password?
-              </NavLink>
-            </div>
-
             <button type="submit" className="btn-primary btn-full">
               Sign in
             </button>
           </form>
 
-          <div className="auth-divider">
-            <span>or</span>
-          </div>
-
-          <div className="auth-footer">
-            <p>
-              Don't have an account?{' '}
-              <NavLink to="/signup" className="auth-link auth-link--accent">
-                Create one
-              </NavLink>
-            </p>
-          </div>
+          <p className="auth-footer">
+            New to LuxeLoom?{' '}
+            <NavLink to="/signup" className="auth-link">
+              Create an account
+            </NavLink>
+          </p>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
 export default Login
+
 

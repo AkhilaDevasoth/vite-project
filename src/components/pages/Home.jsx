@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const categories = [
   { title: 'Occasionwear', description: 'Hand-beaded gowns for ceremonial evenings.' },
@@ -138,21 +139,28 @@ function Home() {
       <section className="page-section">
         <h2 className="section-title">Featured pieces</h2>
         <div className="product-grid">
-          {featured.map((item) => (
-            <article key={item.title} className="product-card">
-              <div className="product-card__image">
-                <img src={item.image} alt={`${item.title} dress`} loading="lazy" />
-              </div>
-              <h3>{item.title}</h3>
-              <p className="product-tag">{item.tag}</p>
-              <div className="product-card__meta">
-                <span>{item.price}</span>
-                <button className="btn-secondary" type="button">
-                  View
-                </button>
-              </div>
-            </article>
-          ))}
+          {featured.map((item) => {
+            const slug = item.title.toLowerCase().replace(/\s+/g, '-')
+            return (
+              <article key={item.title} className="product-card">
+                <div className="product-card__image">
+                  <img src={item.image} alt={`${item.title} dress`} loading="lazy" />
+                </div>
+                <h3>{item.title}</h3>
+                <p className="product-tag">{item.tag}</p>
+                <div className="product-card__meta">
+                  <span>{item.price}</span>
+                  <Link
+                    to={`/product/${slug}`}
+                    state={{ product: item }}
+                    className="btn-secondary"
+                  >
+                    View
+                  </Link>
+                </div>
+              </article>
+            )
+          })}
         </div>
       </section>
 

@@ -1,10 +1,11 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const menu = [
-  'About',
-  'Lookbook',
-  'Journal',
-  'Gift cards',
+  { label: 'About', to: '/about' },
+  { label: 'Lookbook', to: '/lookbook' },
+  { label: 'Journal', to: '/journal' },
+  { label: 'Gift cards', to: '/gift-cards' },
 ]
 
 function Footer() {
@@ -19,13 +20,19 @@ function Footer() {
           <h4>Explore</h4>
           <ul>
             {menu.map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item.to}>
+                <NavLink to={item.to}>{item.label}</NavLink>
+              </li>
             ))}
           </ul>
         </div>
         <div>
           <h4>Visit</h4>
-          <p>118 Mercer Street<br />New York, NY</p>
+          <p>
+            118 Mercer Street
+            <br />
+            New York, NY
+          </p>
           <p>Open 10am - 8pm</p>
         </div>
         <div>
